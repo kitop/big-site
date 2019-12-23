@@ -9,5 +9,8 @@ for n in {1..15000}; do
     prefix=$(echo $RANDOM$RANDOM | sed "s/\\([0-9]\\{0,$s\\}\\)/\\1\\//g")
     mkdir -p site/${prefix}
   fi
-  dd if=/dev/urandom of=site/${prefix}$( printf %03d "$n" ).html bs=1 count=$(( (RANDOM + 1024) / 4)) 2>&1 | grep "records out"
+  if [ $(($n % 100)) -eq 0 ]; then
+    echo "$n pages generated"
+  fi
+  dd if=/dev/urandom of=site/${prefix}$( printf %03d "$n" ).html bs=1 count=$(( (RANDOM + 1024) / 4)) > /dev/null 2> /dev/null
 done
