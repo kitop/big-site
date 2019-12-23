@@ -2,7 +2,7 @@
 
 mkdir -p site
 
-for n in {1..30000}; do
+for n in {1..7000}; do
   prefix=""
   if [ $((RANDOM % 2)) -eq 0 ]; then
     s=$((RANDOM % 10 + 1))
@@ -12,5 +12,5 @@ for n in {1..30000}; do
   if [ $(($n % 100)) -eq 0 ]; then
     echo "$n pages generated"
   fi
-  dd if=/dev/urandom of=site/${prefix}$( printf %03d "$n" ).txt bs=1 count=$(( (RANDOM + 1024) / 4)) > /dev/null 2> /dev/null
+  dd if=/dev/urandom of=site/${prefix}$( printf %03d "$n" ).txt bs=1 count=$(( 100 * 1024)) > /dev/null 2> /dev/null
 done
