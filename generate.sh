@@ -12,5 +12,5 @@ for n in {1..7000}; do
   if [ $(($n % 100)) -eq 0 ]; then
     echo "$n pages generated"
   fi
-  dd if=/dev/urandom of=site/${prefix}$( printf %03d "$n" ).txt bs=1 count=$(( 100 * 1024)) > /dev/null 2> /dev/null
+  dd if=/dev/urandom of=site/${prefix}$( printf %03d "$n" ).txt bs=1 count=$(( 10 * 1024)) > /dev/null 2> /dev/null
 done
