@@ -8,7 +8,7 @@ if [ -z "$NUM_FILES" ]; then
 fi
 
 if [ -z "$FILE_SIZE" ]; then
-  echo "No FILE_SIZEset, using default of 1024"
+  echo "No FILE_SIZE set, using default of 1024"
   FILE_SIZE=1024
 fi
 
